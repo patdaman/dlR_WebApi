@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>50071b2f-e5c8-496b-975f-f1daa5a110f8</ProjectGuid>
+    <ProjectGuid>{50071B2F-E5C8-496B-975F-F1DAA5A110F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebApi</RootNamespace>
@@ -30,24 +30,434 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="APILib\ClientApi.cs" />
+    <Compile Include="APILib\DataSetExtensions.cs" />
+    <Compile Include="APILib\Exceptions\Log4NetExceptionLogger.cs" />
+    <Compile Include="APILib\FileHelper.cs" />
+    <Compile Include="APILib\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="APILib\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="APILib\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="APILib\Properties\AssemblyInfo.cs" />
+    <Compile Include="APILib\Service References\PathCentralService\Reference.cs" />
+    <Compile Include="APILib\Service References\PathCentralService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="APILib\Service References\TestXifinAccessionSearchService\Reference.cs" />
+    <Compile Include="APILib\Service References\TestXifinAccessionSearchService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="APILib\Service References\TestXifinAccessionService\Reference.cs" />
+    <Compile Include="APILib\Service References\TestXifinAccessionService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="APILib\Service References\XifinAccessionSearchService\Reference.cs" />
+    <Compile Include="APILib\Service References\XifinAccessionSearchService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="APILib\Service References\XifinAccessionService\Reference.cs" />
+    <Compile Include="APILib\Service References\XifinAccessionService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="APILib\XifinBilling\NonceUtil.cs" />
+    <Compile Include="APILib\XifinBilling\soapAPI.cs" />
+    <Compile Include="API\App_Start\BundleConfig.cs" />
+    <Compile Include="API\App_Start\FilterConfig.cs" />
+    <Compile Include="API\App_Start\RouteConfig.cs" />
+    <Compile Include="API\App_Start\WebApiConfig.cs" />
+    <Compile Include="API\Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="API\Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="API\Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="API\Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="API\Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="API\Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="API\Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="API\Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="API\Controllers\AccessionContactNotesController.cs" />
+    <Compile Include="API\Controllers\AccessionErrorsController.cs" />
+    <Compile Include="API\Controllers\AccessionTrackingController.cs" />
+    <Compile Include="API\Controllers\BaiController.cs" />
+    <Compile Include="API\Controllers\BillingEventsController.cs" />
+    <Compile Include="API\Controllers\BillingStatusCasesController.cs" />
+    <Compile Include="API\Controllers\CaseBillingReportsController.cs" />
+    <Compile Include="API\Controllers\CasePaymentController.cs" />
+    <Compile Include="API\Controllers\CaseTransactionController.cs" />
+    <Compile Include="API\Controllers\ConfigurationsController.cs" />
+    <Compile Include="API\Controllers\EnumListItemsController.cs" />
+    <Compile Include="API\Controllers\HomeController.cs" />
+    <Compile Include="API\Controllers\LisCasesController.cs" />
+    <Compile Include="API\Controllers\NotesController.cs" />
+    <Compile Include="API\Controllers\PayorGroupsController.cs" />
+    <Compile Include="API\Controllers\PayorsController.cs" />
+    <Compile Include="API\Controllers\PhysiciansController.cs" />
+    <Compile Include="API\Controllers\TransactionController.cs" />
+    <Compile Include="API\Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="API\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="API\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="API\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="API\Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicAPI\App_Start\BundleConfig.cs" />
+    <Compile Include="PublicAPI\App_Start\FilterConfig.cs" />
+    <Compile Include="PublicAPI\App_Start\IdentityConfig.cs" />
+    <Compile Include="PublicAPI\App_Start\RouteConfig.cs" />
+    <Compile Include="PublicAPI\App_Start\Startup.Auth.cs" />
+    <Compile Include="PublicAPI\App_Start\WebApiConfig.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="PublicAPI\Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="PublicAPI\Controllers\AccountController.cs" />
+    <Compile Include="PublicAPI\Controllers\HomeController.cs" />
+    <Compile Include="PublicAPI\Controllers\ValuesController.cs" />
+    <Compile Include="PublicAPI\Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PublicAPI\Models\AccountBindingModels.cs" />
+    <Compile Include="PublicAPI\Models\AccountViewModels.cs" />
+    <Compile Include="PublicAPI\Models\IdentityModels.cs" />
+    <Compile Include="PublicAPI\Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicAPI\Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="PublicAPI\Results\ChallengeResult.cs" />
+    <Compile Include="PublicAPI\Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APILib\APILib.csproj" />
+    <Content Include="APILib\Microsoft.Web.Services3.dll" />
+    <Content Include="APILib\Service References\PathCentralService\configuration.svcinfo" />
+    <Content Include="APILib\Service References\PathCentralService\configuration91.svcinfo" />
+    <Content Include="APILib\Service References\PathCentralService\NGSService.disco" />
+    <Content Include="APILib\Service References\PathCentralService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="APILib\Service References\TestXifinAccessionSearchService\configuration.svcinfo" />
+    <Content Include="APILib\Service References\TestXifinAccessionSearchService\configuration91.svcinfo" />
+    <Content Include="APILib\Service References\TestXifinAccessionSearchService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="APILib\Service References\TestXifinAccessionService\configuration.svcinfo" />
+    <Content Include="APILib\Service References\TestXifinAccessionService\configuration91.svcinfo" />
+    <Content Include="APILib\Service References\TestXifinAccessionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="APILib\Service References\XifinAccessionSearchService\configuration.svcinfo" />
+    <Content Include="APILib\Service References\XifinAccessionSearchService\configuration91.svcinfo" />
+    <Content Include="APILib\Service References\XifinAccessionSearchService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="APILib\Service References\XifinAccessionService\configuration.svcinfo" />
+    <Content Include="APILib\Service References\XifinAccessionService\configuration91.svcinfo" />
+    <Content Include="APILib\Service References\XifinAccessionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="API\API.csproj" />
+    <Content Include="API\App_Data\XmlDocument.xml" />
+    <Content Include="API\Areas\HelpPage\HelpPage.css" />
+    <Content Include="API\Content\Site.css" />
+    <Content Include="API\Content\themes\base\accordion.css" />
+    <Content Include="API\Content\themes\base\all.css" />
+    <Content Include="API\Content\themes\base\autocomplete.css" />
+    <Content Include="API\Content\themes\base\base.css" />
+    <Content Include="API\Content\themes\base\button.css" />
+    <Content Include="API\Content\themes\base\core.css" />
+    <Content Include="API\Content\themes\base\datepicker.css" />
+    <Content Include="API\Content\themes\base\dialog.css" />
+    <Content Include="API\Content\themes\base\draggable.css" />
+    <Content Include="API\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="API\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="API\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="API\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="API\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="API\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="API\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="API\Content\themes\base\menu.css" />
+    <Content Include="API\Content\themes\base\progressbar.css" />
+    <Content Include="API\Content\themes\base\resizable.css" />
+    <Content Include="API\Content\themes\base\selectable.css" />
+    <Content Include="API\Content\themes\base\selectmenu.css" />
+    <Content Include="API\Content\themes\base\slider.css" />
+    <Content Include="API\Content\themes\base\sortable.css" />
+    <Content Include="API\Content\themes\base\spinner.css" />
+    <Content Include="API\Content\themes\base\tabs.css" />
+    <Content Include="API\Content\themes\base\theme.css" />
+    <Content Include="API\Content\themes\base\tooltip.css" />
+    <Content Include="API\favicon.ico" />
+    <Content Include="API\Global.asax" />
+    <Content Include="API\Images\accent.png" />
+    <Content Include="API\Images\bullet.png" />
+    <Content Include="API\Images\heroAccent.png" />
+    <Content Include="API\Images\orderedList0.png" />
+    <Content Include="API\Images\orderedList1.png" />
+    <Content Include="API\Images\orderedList2.png" />
+    <Content Include="API\Images\orderedList3.png" />
+    <Content Include="API\Images\orderedList4.png" />
+    <Content Include="API\Images\orderedList5.png" />
+    <Content Include="API\Images\orderedList6.png" />
+    <Content Include="API\Images\orderedList7.png" />
+    <Content Include="API\Images\orderedList8.png" />
+    <Content Include="API\Images\orderedList9.png" />
+    <Content Include="API\Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="API\Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="API\Scripts\jquery-2.2.3.js" />
+    <Content Include="API\Scripts\jquery-2.2.3.min.js" />
+    <Content Include="API\Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="API\Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="API\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="API\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="API\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="API\Scripts\jquery.validate.js" />
+    <Content Include="API\Scripts\jquery.validate.min.js" />
+    <Content Include="API\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="API\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="API\Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="API\Scripts\knockout-3.4.0.js" />
+    <Content Include="API\Scripts\modernizr-2.6.2.js" />
+    <Content Include="API\Scripts\modernizr-2.8.3.js" />
+    <Content Include="API\Scripts\_references.js" />
+    <Content Include="PublicAPI\Areas\HelpPage\HelpPage.css" />
+    <Content Include="PublicAPI\Content\bootstrap-theme.css" />
+    <Content Include="PublicAPI\Content\bootstrap-theme.min.css" />
+    <Content Include="PublicAPI\Content\bootstrap.css" />
+    <Content Include="PublicAPI\Content\bootstrap.min.css" />
+    <Content Include="PublicAPI\Content\Site.css" />
+    <Content Include="PublicAPI\favicon.ico" />
+    <Content Include="PublicAPI\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="PublicAPI\Global.asax" />
+    <Content Include="PublicAPI\Project_Readme.html" />
+    <Content Include="PublicAPI\PublicAPI.csproj" />
+    <Content Include="PublicAPI\PublicAPI.csproj.user" />
+    <Content Include="PublicAPI\Scripts\bootstrap.js" />
+    <Content Include="PublicAPI\Scripts\bootstrap.min.js" />
+    <Content Include="PublicAPI\Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="PublicAPI\Scripts\jquery-2.2.3.js" />
+    <Content Include="PublicAPI\Scripts\jquery-2.2.3.min.js" />
+    <Content Include="PublicAPI\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="PublicAPI\Scripts\jquery.validate.js" />
+    <Content Include="PublicAPI\Scripts\jquery.validate.min.js" />
+    <Content Include="PublicAPI\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="PublicAPI\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="PublicAPI\Scripts\modernizr-2.8.3.js" />
+    <Content Include="PublicAPI\Scripts\respond.js" />
+    <Content Include="PublicAPI\Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="PublicAPI\Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="PublicAPI\Scripts\respond.min.js" />
+    <Content Include="PublicAPI\Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="APILib\app.config" />
+    <None Include="APILib\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="APILib\packages.config" />
+    <None Include="APILib\Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="APILib\Service References\PathCentralService\NGSService.wsdl" />
+    <None Include="APILib\Service References\TestXifinAccessionSearchService\accessionSearch.wsdl" />
+    <None Include="APILib\Service References\TestXifinAccessionSearchService\SignalAPILib.TestXifinAccessionSearchService.AccessionSearchResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionSearchService\SignalAPILib.TestXifinAccessionSearchService.AccessionSearchResponse1.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionSearchService\SignalAPILib.TestXifinAccessionSearchService.AccessionSearchResponse11.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionSearchService\SignalAPILib.TestXifinAccessionSearchService.AccessionSearchResponse2.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\accession.wsdl" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.CreateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.CreateAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.GetAccessionResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.GetAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.GetEPAccessionResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.GetEPAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.UpdateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.UpdateAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.ValidateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\TestXifinAccessionService\SignalAPILib.TestXifinAccessionService.ValidateAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionSearchService\accessionSearch.wsdl" />
+    <None Include="APILib\Service References\XifinAccessionSearchService\SignalAPILib.XifinAccessionSearchService.AccessionSearchResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionSearchService\SignalAPILib.XifinAccessionSearchService.AccessionSearchResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\accession.wsdl" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.CreateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.CreateAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.GetAccessionResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.GetAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.GetEPAccessionResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.GetEPAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.UpdateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.UpdateAccessionResponse1.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.ValidateAccessionResponse.datasource" />
+    <None Include="APILib\Service References\XifinAccessionService\SignalAPILib.XifinAccessionService.ValidateAccessionResponse1.datasource" />
+    <None Include="API\ApplicationInsights.config" />
+    <None Include="API\Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\Index.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <None Include="API\Areas\HelpPage\Views\Web.config" />
+    <None Include="API\Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <None Include="API\log.config" />
+    <None Include="API\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="API\packages.config" />
+    <None Include="API\Properties\PublishProfiles\API_Beta.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_Beta2.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_Debug.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_Production.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_Production_2.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_SignalCi.pubxml" />
+    <None Include="API\Properties\PublishProfiles\API_Staging.pubxml" />
+    <None Include="API\Scripts\jquery-2.2.3.min.map" />
+    <None Include="API\SGNLBuild.webapi.cmd" />
+    <None Include="API\Views\Home\Index.cshtml" />
+    <None Include="API\Views\Shared\Error.cshtml" />
+    <None Include="API\Views\Shared\_Layout.cshtml" />
+    <None Include="API\Views\Web.config" />
+    <None Include="API\Views\_ViewStart.cshtml" />
+    <None Include="API\Web.Beta.config" />
+    <None Include="API\Web.Beta2.config" />
+    <None Include="API\Web.config" />
+    <None Include="API\Web.Debug.config" />
+    <None Include="API\Web.DevApp.config" />
+    <None Include="API\Web.Production Release.config" />
+    <None Include="API\Web.SignalCi.config" />
+    <None Include="API\Web.Staging.config" />
+    <None Include="BillingWebApi\BillingWebApi\Properties\PublishProfiles\Local.pubxml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\Index.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\Web.config" />
+    <None Include="PublicAPI\Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <None Include="PublicAPI\Content\bootstrap-theme.css.map" />
+    <None Include="PublicAPI\Content\bootstrap-theme.min.css.map" />
+    <None Include="PublicAPI\Content\bootstrap.css.map" />
+    <None Include="PublicAPI\Content\bootstrap.min.css.map" />
+    <None Include="PublicAPI\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="PublicAPI\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="PublicAPI\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="PublicAPI\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="PublicAPI\packages.config" />
+    <None Include="PublicAPI\Properties\PublishProfiles\SGNLPublicAPI-devtest - Web Deploy.pubxml" />
+    <None Include="PublicAPI\Properties\PublishProfiles\SGNLPublicAPI-staging - Web Deploy.pubxml" />
+    <None Include="PublicAPI\Properties\webjobs-list.json" />
+    <None Include="PublicAPI\Scripts\jquery-2.2.3.min.map" />
+    <None Include="PublicAPI\Views\Home\Index.cshtml" />
+    <None Include="PublicAPI\Views\Shared\Error.cshtml" />
+    <None Include="PublicAPI\Views\Shared\_Layout.cshtml" />
+    <None Include="PublicAPI\Views\Web.config" />
+    <None Include="PublicAPI\Views\_ViewStart.cshtml" />
+    <None Include="PublicAPI\Web.config" />
+    <None Include="PublicAPI\Web.Debug.config" />
+    <None Include="PublicAPI\Web.Release.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="APILib\bin\Debug\" />
+    <Folder Include="APILib\obj\Debug\TempPE\" />
+    <Folder Include="API\bin\" />
+    <Folder Include="API\Models\" />
+    <Folder Include="API\obj\Debug\TempPE\" />
+    <Folder Include="API\Views\AccessionTracking\" />
+    <Folder Include="API\Views\BillingEvents\" />
+    <Folder Include="API\Views\BillingStatusCases\" />
+    <Folder Include="API\Views\Notes\" />
+    <Folder Include="API\Views\Physians\" />
+    <Folder Include="PublicAPI\App_Data\" />
+    <Folder Include="PublicAPI\bin\" />
+    <Folder Include="PublicAPI\obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +467,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>
