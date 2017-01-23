@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://www.xifin.com/schema/accession" xmlns:sch2="http://www.xifin.com/schema/msgHeader" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch1="http://www.xifin.com/schema/types" xmlns:sch0="http://www.xifin.com/schema/accession" targetNamespace="http://www.xifin.com/schema/accession" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns="http://www.xifin.com/schema/accession" xmlns:msgHeader="http://www.xifin.com/schema/msgHeader" xmlns:types="http://www.xifin.com/schema/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/accession" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.xifin.com/schema/types" />
+      <xs:import namespace="http://www.xifin.com/schema/msgHeader" />
+      <xs:element name="GetAccessionRequest">
+        <xs:annotation>
+          <xs:documentation>Soap request message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="AccessionId" type="types:AccessionIdType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAccessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Status" type="types:StatusType" />
+                  <xs:element ref="sch0:GetAccessionResponseMessage" />
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAccessionResponseMessage">
+        <xs:annotation>
+          <xs:documentation>Soap response message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AccessionId" type="types:AccessionIdType" />
+            <xs:element minOccurs="0" name="LinkedAccessions" type="types:NoteType">
+              <xs:annotation>
+                <xs:documentation>Comma delimited list of linked accessions</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="DateOfService" type="xs:date" />
+            <xs:element minOccurs="0" name="TimeOfService" type="types:TimeOfService" />
+            <xs:element minOccurs="0" name="ReceiptDate" type="xs:date" />
+            <xs:element minOccurs="0" name="ClientId" type="types:IdType" />
+            <xs:element minOccurs="0" name="ClientName" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="RequisitionId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="AccessionStatus" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="StatementStatus" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="FinalReportDate" type="xs:date" />
+            <xs:element minOccurs="0" name="PricedDate" type="xs:date" />
+            <xs:element minOccurs="0" name="AccountingDate" type="xs:date" />
+            <xs:element minOccurs="0" name="OriginalAccountingDate" type="xs:date" />
+            <xs:element minOccurs="0" name="ClientStatementDate" type="xs:date" />
+            <xs:element minOccurs="0" name="ExpectPrice" type="types:AmountType" />
+            <xs:element minOccurs="0" name="GrossPrice" type="types:AmountType" />
+            <xs:element minOccurs="0" name="BilledPrice" type="types:AmountType" />
+            <xs:element minOccurs="0" name="BalanceDue" type="types:AmountType" />
+            <xs:element minOccurs="0" name="PatientDueAmount" type="types:AmountType" />
+            <xs:element minOccurs="0" name="PatientInfo" type="sch0:PatientInfoType" />
+            <xs:element minOccurs="0" name="ClientProductId" type="types:ClientProductType" />
+            <xs:element minOccurs="0" name="NoCharge" type="xs:boolean" />
+            <xs:element minOccurs="0" name="PatientSignatureOnFile" type="xs:boolean" />
+            <xs:element minOccurs="0" name="PhysicianSignatureOnFile" type="xs:boolean" />
+            <xs:element minOccurs="0" name="Physicians" type="sch0:Physicians" />
+            <xs:element minOccurs="0" name="PhlebotomistUserId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="PhlebotomistName" type="xs:string" />
+            <xs:element minOccurs="0" name="PscLocationId" type="xs:string" />
+            <xs:element minOccurs="0" name="PscLocationName" type="xs:string" />
+            <xs:element minOccurs="0" name="CallBack" type="xs:boolean" />
+            <xs:element minOccurs="0" name="CallBackPhone" type="types:PhoneNumberType" />
+            <xs:element minOccurs="0" name="STAT" type="xs:boolean" />
+            <xs:element minOccurs="0" name="AdmitDate" type="xs:date" />
+            <xs:element minOccurs="0" name="AdmissionTime" type="types:TimeType" />
+            <xs:element minOccurs="0" name="DischargeDate" type="xs:date" />
+            <xs:element minOccurs="0" name="DischargeTime" type="types:TimeType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="InsuranceInfo" type="sch0:GetInsuranceInfoType" />
+            <xs:element minOccurs="0" name="PaidInFull" type="xs:boolean" />
+            <xs:element minOccurs="0" name="TravelFee" type="sch0:TravelFeeType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionLevelDiagnosisCodes" type="sch0:DiagnosisCode" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientQuestions" type="sch0:ClientQuestion" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderedTests" type="sch0:GetOrderedTest" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="BillableProcedureCodes" type="sch0:BillableProcedureCode" />
+            <xs:element minOccurs="0" name="BulkPaymentAndDenials" type="sch0:BulkPaymentAndDenials" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionErrors" type="sch0:ErrorType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalReportCopy" type="sch0:AdditionalReportCopyType" />
+            <xs:element minOccurs="0" name="ClinicalTrial" type="sch0:ClinicalTrial" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PromisedPayments" type="sch0:PromisedPayments" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionContactInfo" type="sch0:AccessionContactInfo" />
+            <xs:element minOccurs="0" name="ChainOfCustody" type="sch0:ChainOfCustody" />
+            <xs:element minOccurs="0" name="DialysisInfo" type="sch0:DialysisInfoType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueCodes" type="sch0:ValueCodeType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="OccurrenceCodes" type="sch0:OccurrenceCodeType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecimenInfo" type="sch0:SpecimenInformationType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DeletedPayorInfo" type="sch0:GetInsuranceInfoType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionLevelDeletedDiagnosisCodes" type="sch0:DeletedDiagnosisCode" />
+            <xs:element minOccurs="0" name="MspForm" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAccessionRequest">
+        <xs:annotation>
+          <xs:documentation>Soap request message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CreateAccession" type="sch0:AccessionType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAccessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Status" type="types:StatusType" />
+                  <xs:element name="BusinessObject">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionErrors" type="sch0:ErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionPayorErrors" type="sch0:AccessionPayorErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionTestErrors" type="sch0:AccessionTestErrorType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateEPAccessionRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UpdateAccession" type="sch0:AccessionType" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="ManualErrorFixes" type="sch0:ManualErrorFixType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAccessionRequest">
+        <xs:annotation>
+          <xs:documentation>Soap request message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UpdateAccession" type="sch0:AccessionType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAccessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Status" type="types:StatusType" />
+                  <xs:element name="BusinessObject">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionErrors" type="sch0:ErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionPayorErrors" type="sch0:AccessionPayorErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionTestErrors" type="sch0:AccessionTestErrorType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateAccessionRequest">
+        <xs:annotation>
+          <xs:documentation>Soap request message structure for validate Accession</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ValidateAccession" type="sch0:AccessionType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateAccessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Status" type="types:StatusType" />
+                  <xs:element name="BusinessObject">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionErrors" type="sch0:ErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionPayorErrors" type="sch0:AccessionPayorErrorType" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionTestErrors" type="sch0:AccessionTestErrorType" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetEPAccessionRequest">
+        <xs:annotation>
+          <xs:documentation>Soap request message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="GetEPAccessionRequestMessage" type="sch0:GetEPAccessionRequestMessage" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetEPAccessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Status" type="types:StatusType" />
+                  <xs:element ref="sch0:GetEPAccessionResponseMessage" />
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="GetEPAccessionRequestMessage">
+        <xs:sequence>
+          <xs:element name="AccessionId" type="types:AccessionIdType" />
+          <xs:element name="CorrespondanceType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" default="false" name="IncludeAccessionDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" default="false" name="IncludeLimitedCoveragePolicyDetails" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetEPAccessionResponseMessage">
+        <xs:annotation>
+          <xs:documentation>Soap response message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionErrors" type="sch0:ErrorType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionTestErrors" type="sch0:AccessionTestErrorType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionPayorErrors" type="sch0:AccessionPayorErrorType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionProcedureErrors" type="sch0:AccessionProcedureErrorType" />
+            <xs:element minOccurs="0" ref="sch0:GetAccessionResponseMessage" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="LimitedCoveragePolicyDetails" type="sch0:LimitedCoveragePolicyDetails" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ManualErrorFixType">
+        <xs:sequence>
+          <xs:element name="ReasonCode" type="types:IdType" />
+          <xs:element name="ErrorType" type="sch0:ErrorTypeEnum" />
+          <xs:choice>
+            <xs:annotation>
+              <xs:documentation>
+                        Depending on the ErrorType chosen, additional information can be provided to
+                        constrain the errors to specific references.
+                    </xs:documentation>
+            </xs:annotation>
+            <xs:element minOccurs="0" name="AccessionPayorErrorReference" type="sch0:AccessionPayorErrorReferenceType" />
+            <xs:element minOccurs="0" name="AccessionProcedureErrorReference" type="sch0:AccessionProcedureErrorReferenceType" />
+            <xs:element minOccurs="0" name="AccessionTestErrorReference" type="sch0:AccessionTestErrorReferenceType" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="FixNote" type="types:NoteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionPayorErrorReferenceType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="payorPriority" type="types:PayorPriorityType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionProcedureErrorReferenceType">
+        <xs:sequence>
+          <xs:element name="procedureId" type="types:IdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionTestErrorReferenceType">
+        <xs:sequence>
+          <xs:element name="testId" type="types:IdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ErrorTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ACCESSION" />
+          <xs:enumeration value="PAYOR" />
+          <xs:enumeration value="PROCEDURE" />
+          <xs:enumeration value="TEST" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="AccessionType">
+        <xs:sequence>
+          <xs:element name="AccessionId" type="types:AccessionIdType" />
+          <xs:element name="IgnoreErrors" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RequisitionId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ReceiptDate" type="xs:date" />
+          <xs:element name="DateOfService" type="xs:date" />
+          <xs:element minOccurs="0" name="TimeOfService" type="types:TimeOfService" />
+          <xs:element minOccurs="0" name="AdmitDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DischargeDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ClientId" type="types:IdType" />
+          <xs:element minOccurs="0" name="PatientInfo" type="sch0:PatientInfoType" />
+          <xs:element minOccurs="0" name="PatientDemoEffectiveDate" type="xs:date" />
+          <xs:element minOccurs="0" name="FinalReportedDate" type="xs:date" />
+          <xs:element minOccurs="0" name="Physicians" type="sch0:Physicians" />
+          <xs:element minOccurs="0" name="PatientSignatureOnFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PhysicianSignatureOnFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReportCopyToPatient" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CallBack" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CallBackPhone" type="types:PhoneNumberType" />
+          <xs:element minOccurs="0" name="STAT" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionContactInfo" type="sch0:AccessionContactInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalReportCopy" type="sch0:AdditionalReportCopyType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientQuestions" type="sch0:ClientQuestion" />
+          <xs:element minOccurs="0" name="ClinicalTrial" type="sch0:ClinicalTrial" />
+          <xs:element minOccurs="0" name="ChainOfCustody" type="sch0:ChainOfCustody" />
+          <xs:element minOccurs="0" name="DialysisInfo" type="sch0:DialysisInfoType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderedTests" type="sch0:CreateOrUpdateOrderedTest" />
+          <xs:element minOccurs="0" name="TravelFee" type="sch0:TravelFeeType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessionLevelDiagnosisCodes" type="sch0:DiagnosisCode" />
+          <xs:element minOccurs="0" name="PhlebotomistUserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PscLocationId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecimenInfo" type="sch0:SpecimenInformationType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="InsuranceInfo" type="sch0:CreateOrUpdateInsuranceInfoType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OccurrenceCode" type="sch0:OccurrenceCodeType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueCode" type="sch0:ValueCodeType" />
+          <xs:element minOccurs="0" name="CheckClientBillingRules" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ClientProductId" type="types:ClientProductType">
+            <xs:annotation>
+              <xs:documentation>The available ClientProductIds can be obtained using typetables
+                        webservice where tablename =ClientProductType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="NoCharge" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PaidInFull" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreateOrUpdatePatientDemo" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>If CreateOrUpdatePatientDemo flag is true
+                        If patient Demo graphic record exists,
+                        update the existing patient demographic record
+                        else
+                        create permanent patient Demo graphic record
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MspForm" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmployerInfoType">
+        <xs:sequence>
+          <xs:element name="EmployerName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="EmployerId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Address" type="types:AddressType" />
+          <xs:element minOccurs="0" name="Status" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available EmploymentStatTyps can be obtained using typetables
+                        webservice where tablename =EmploymentStatTyp.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="EmployerContact" type="types:Contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetInsuranceInfoType">
+        <xs:sequence>
+          <xs:element name="PayorPriority" type="types:PayorPriorityType" />
+          <xs:element name="PayorId" type="types:IdType" />
+          <xs:element minOccurs="0" name="PayorName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="SubscriberId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:date" />
+          <xs:element minOccurs="0" name="Gender" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuredRelationship" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PlanId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="InsuredName" type="types:NameType" />
+          <xs:element minOccurs="0" name="Address" type="types:AddressType" />
+          <xs:element minOccurs="0" name="Phone" type="types:PhoneType" />
+          <xs:element minOccurs="0" name="InsuredSSN" type="types:SSNType" />
+          <xs:element minOccurs="0" name="AuthorizationNumber" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ClaimNotes" type="types:NoteType" />
+          <xs:element minOccurs="0" name="Comments" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo1" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo2" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo3" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo4" type="types:NoteType" />
+          <xs:element minOccurs="0" name="GroupName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="CaseId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DelayReasonCode" type="types:DelayReasonCodeType" />
+          <xs:element minOccurs="0" name="EmployerInfo" type="sch0:EmployerInfoType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EligibilityInfo" type="sch0:EligibilityInfo" />
+          <xs:element minOccurs="0" name="PaidInFull" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PayorErrors" type="sch0:ErrorType" />
+          <xs:element minOccurs="0" name="Jurisdiction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DemonstrationProjectId" type="types:DemonstrationProjectIdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateOrUpdateInsuranceInfoType">
+        <xs:sequence>
+          <xs:element name="PayorPriority" type="types:PayorPriorityType" />
+          <xs:element name="PayorId" type="types:IdType" />
+          <xs:element minOccurs="0" name="PayorName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="SubscriberId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:date" />
+          <xs:element minOccurs="0" name="Gender" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Use typetables webservice to get available Ids use for this type .Use Gender as
+                        tablename
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="InsuredRelationship" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>The available InsuredRelationships can be obtained using typetables
+                        webservice where tablename =InsuredRelationship.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="GroupId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PlanId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="InsuredName" type="types:NameType" />
+          <xs:element minOccurs="0" name="Address" type="types:AddressType" />
+          <xs:element minOccurs="0" name="Phone" type="types:PhoneType" />
+          <xs:element minOccurs="0" name="InsuredSSN" type="types:SSNType" />
+          <xs:element minOccurs="0" name="AuthorizationNumber" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ClaimNotes" type="types:NoteType" />
+          <xs:element minOccurs="0" name="Comments" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo1" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo2" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo3" type="types:NoteType" />
+          <xs:element minOccurs="0" name="OtherInfo4" type="types:NoteType" />
+          <xs:element minOccurs="0" name="GroupName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="CaseId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DelayReasonCode" type="types:DelayReasonCodeType">
+            <xs:annotation>
+              <xs:documentation>The available DelayReasonCodes can be obtained using typetables webservice
+                        where tablename =DelayReasonCode.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="EmployerInfo" type="sch0:EmployerInfoType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EligibilityInfo" type="sch0:EligibilityInfo" />
+          <xs:element minOccurs="0" name="DemonstrationProjectId" type="types:DemonstrationProjectIdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PatientInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PatientId" type="types:NameIdType" />
+          <xs:element minOccurs="0" name="Person" type="types:PersonType" />
+          <xs:element minOccurs="0" name="PatientType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available PatientTypes can be obtained using typetables webservice
+                        where tablename =PatientType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Fasting" type="sch0:PatientFastingType">
+            <xs:annotation>
+              <xs:documentation>The available Fastings can be obtained using typetables webservice
+                        where tablename =Fasting.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PatientLocation" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available PatientLocations can be obtained using typetables webservice
+                        where tablename =PatientLocation.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="IndigentPercent" type="types:AmountType" />
+          <xs:element minOccurs="0" name="OnsetDate" type="xs:date" />
+          <xs:element minOccurs="0" name="OnsetType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available OnsetTypes can be obtained using typetables webservice
+                        where tablename =OnsetType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="AdmissionSource" type="types:ShortStrType">
+            <xs:annotation>
+              <xs:documentation>The available AdmissionSources can be obtained using typetables webservice
+                        where tablename =AdmissionSource.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="AdmissionType" type="types:ShortStrType">
+            <xs:annotation>
+              <xs:documentation>The available AdmissionTypes can be obtained using typetables webservice
+                        where tablename =AdmissionType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="AccidentCause" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available AccidentCauses can be obtained using typetables webservice
+                        where tablename =AccidentCause.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="AccidentState" type="xs:string" />
+          <xs:element minOccurs="0" default="false" name="EmergencyIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="GravidaNumber" type="types:SmallInt" />
+          <xs:element minOccurs="0" name="Pregnancy" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available MaritalStatuses can be obtained using typetables webservice
+                        where tablename =MaritalStatus.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Comments" type="types:CommentsType" />
+          <xs:element minOccurs="0" name="PatientStatusType" type="types:PatientStatusType">
+            <xs:annotation>
+              <xs:documentation>The available PatientStatusTypes can be obtained using typetables webservice
+                        where tablename =PatientStatusType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ClientSpecificPatientId" type="types:PatientIdType" />
+          <xs:element minOccurs="0" name="FacilitySpecificPatientId" type="types:PatientIdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DialysisInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DialysisType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available DialysisTypes can be obtained using typetables webservice
+                        where tablename =DialysisType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Medication" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available Medications can be obtained using typetables webservice
+                        where  tablename =Medication.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EligibilityInfo">
+        <xs:sequence>
+          <xs:element name="EligibilityStatus" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available EligibilityStatuss can be obtained using typetables webservice
+                     where tablename =EligibilityStatus.
+                     The typetable webservice response returns the Id and description. In this webservice request
+                     send the Id.
+                 </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EligibilityService" type="types:DescriptionType" />
+          <xs:element name="EligibilityCheckedDate" type="xs:date" />
+          <xs:element minOccurs="0" name="EligibilityTransactionId" type="xs:positiveInteger">
+            <xs:annotation>
+              <xs:documentation>EligibilityTransactionId is the unique transaction Id and can be used to get 271
+                        eligibility data for more details
+                        using eligibility webservice
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClinicalTrial">
+        <xs:sequence>
+          <xs:element name="TrialName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="EncounterName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="EncounterDate" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ModsTyp">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Mod1" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Mod2" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Mod3" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Mod4" type="types:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ChainOfCustody">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MroName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="MroAddress" type="types:AddressType" />
+          <xs:element minOccurs="0" name="MroContact" type="types:Contact" />
+          <xs:element minOccurs="0" name="EmployerInfo" type="sch0:EmployerInfoType" />
+          <xs:element minOccurs="0" name="ChainOfCustodyReasonType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available ChainOfCustodyReasonTypes can be obtained using typetables
+                        webservice where tablename =ChainOfCustodyReasonType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SpecimenTemp" type="xs:nonNegativeInteger">
+            <xs:annotation>
+              <xs:documentation>The available SpecimenTemps can be obtained using typetables webservice
+                        where tablename =SpecimenTemp.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SplitSpecimenCollection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecimenCollector" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="SpecimenCollectorSignatureOnFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecimenTemperatureInRange" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecimenTemperatureNotInRange" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionContactInfo">
+        <xs:annotation>
+          <xs:documentation>User Id is not required for creating and updating accession.User Id in MessageHeader will
+                be used as accession contacts userId
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="types:DescriptionType" />
+          <xs:element name="ContactDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ContactInfo" type="types:NoteType" />
+          <xs:element minOccurs="0" name="FollowUpDate" type="xs:date" />
+          <xs:element minOccurs="0" name="FollowUpUserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PrintableNotes" type="types:NoteType" />
+          <xs:element minOccurs="0" name="PrintOnStatement" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FollowUpComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Voided" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PromisedPayments">
+        <xs:sequence>
+          <xs:element name="UserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ContactDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DunningCycle" type="xs:positiveInteger" />
+          <xs:element minOccurs="0" name="DunningCycleAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="Note" type="types:NoteType" />
+          <xs:element minOccurs="0" name="PrintOnStatement" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FollowUpComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PlanStatus" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="VoidUserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ReasonSystemEnded" type="types:NoteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TestQuestions">
+        <xs:sequence>
+          <xs:element name="Question" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available Questions can be obtained using typetables
+                        webservice where tablename =Question.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Response" type="types:NoteType" />
+          <xs:element minOccurs="0" name="ContactMethod" type="types:NoteType">
+            <xs:annotation>
+              <xs:documentation>The available ContactMethodTypes can be obtained using typetables
+                        webservice where tablename =ContactMethodType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetOrderedTest">
+        <xs:sequence>
+          <xs:element name="TestId" type="types:IdType" />
+          <xs:element minOccurs="0" name="TestName" type="types:TestNameType" />
+          <xs:element minOccurs="0" name="AternativeTestName" type="types:TestNameType" />
+          <xs:element minOccurs="0" name="Profile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Modifiers" type="sch0:ModsTyp" />
+          <xs:element minOccurs="0" name="ManualPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ClientBilled" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LabMessages" type="sch0:GetLabMessage" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DiagnosisCodes" type="sch0:DiagnosisCode" />
+          <xs:element minOccurs="0" name="Note" type="types:NoteType" />
+          <xs:element minOccurs="0" name="PlaceOfService" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="FinalReportDate" type="xs:date" />
+          <xs:element minOccurs="0" name="RenderingPhysician" type="sch0:Physician" />
+          <xs:element minOccurs="0" name="AbnReceived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AbnRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AbnReason" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="AbnComment" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Units" type="types:UnitsType" />
+          <xs:element minOccurs="0" name="ProfileId" type="types:IdType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TestQuestions" type="sch0:TestQuestions" />
+          <xs:element minOccurs="0" name="Result" type="types:NoteType" />
+          <xs:element minOccurs="0" name="ProcedureCode" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ProcedureName" type="types:ProcedureNameType" />
+          <xs:element name="BilledPrice" type="types:AmountType" />
+          <xs:element name="GrossPrice" type="types:AmountType" />
+          <xs:element name="ExpectedPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="PriceMethodType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TestErrors" type="sch0:ErrorType" />
+          <xs:element minOccurs="0" name="StandingOrderId" type="types:NoteType" />
+          <xs:element minOccurs="0" name="RetroBilPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="TradeDiscAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="RetroTradeDiscAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ComponentBillPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ComponentGrossPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="AmbigDate" type="xs:date" />
+          <xs:element minOccurs="0" name="AmbigUser" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="AmbigClientContact" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="NwaDocumentReceived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NwaClientAuth" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NwaAuthDate" type="xs:date" />
+          <xs:element minOccurs="0" name="PayorPriority" type="sch0:PayorPriorityType" />
+          <xs:element minOccurs="0" name="AuthorizationNumber" type="types:AuthorizationNumberType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeletedDiagnosisCodes" type="sch0:DeletedDiagnosisCode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateOrUpdateOrderedTest">
+        <xs:sequence>
+          <xs:element name="TestSequenceNumber" type="xs:positiveInteger">
+            <xs:annotation>
+              <xs:documentation>Unique number of each test on the accession.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TransactionType" type="types:ShortStrType">
+            <xs:annotation>
+              <xs:documentation>Transaction type defined in XIFIN , this is used to find whether the test is
+                        credit or debit , Use D/+ for debit, C/- for credit tests.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TestId" type="types:IdType" />
+          <xs:element minOccurs="0" name="AlternativeTestName" type="types:TestNameType" />
+          <xs:element minOccurs="0" name="Modifiers" type="sch0:ModsTyp" />
+          <xs:element minOccurs="0" name="ManualPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ClientBilled" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LabMessages" type="sch0:CreateOrUpdateLabMessage" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DiagnosisCodes" type="sch0:DiagnosisCode" />
+          <xs:element minOccurs="0" name="Note" type="types:NoteType" />
+          <xs:element minOccurs="0" name="PlaceOfService" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="FinalReportDate" type="xs:date" />
+          <xs:element minOccurs="0" name="RenderingPhysician" type="sch0:Physician" />
+          <xs:element minOccurs="0" name="StandingOrderId" type="types:NoteType" />
+          <xs:element minOccurs="0" name="AbnReceived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AbnReason" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="AbnComment" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Units" type="types:UnitsType" />
+          <xs:element minOccurs="0" name="ProfileId" type="types:IdType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TestQuestions" type="sch0:TestQuestions" />
+          <xs:element minOccurs="0" name="Result" type="types:NoteType" />
+          <xs:element minOccurs="0" name="SplitPayorId" type="types:IdType" />
+          <xs:element minOccurs="0" name="AuthorizationNumber" type="types:AuthorizationNumberType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BillableProcedureCode">
+        <xs:sequence>
+          <xs:element name="ProcedureCode" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PlaceOfService" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="Modifiers" type="sch0:ModsTyp" />
+          <xs:element minOccurs="0" name="UnitsBilled" type="types:UnitsType" />
+          <xs:element minOccurs="0" name="UnitsPaid" type="types:UnitsType" />
+          <xs:element minOccurs="0" name="BilledPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ExpectedPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="LabCost" type="types:AmountType" />
+          <xs:element minOccurs="0" name="RetroBillPrice" type="types:AmountType" />
+          <xs:element minOccurs="0" name="RetroTradeDiscountAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="TradeDiscountAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentAndAdjustment" type="sch0:PaymentAndAdjustment" />
+          <xs:element minOccurs="0" name="PriceMethodType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DueAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="ExpectDueAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="SubmissionDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DiagnosisCode1" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DiagnosisCode2" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DiagnosisCode3" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DiagnosisCode4" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="AbnReceived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Status" type="types:DescriptionType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcedureErrors" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BulkPaymentAndDenial">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProcedureCode" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="PaymentAndAdjustment" type="sch0:PaymentAndAdjustment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BulkPaymentAndDenials">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BulkPaymentAndDenial" type="sch0:BulkPaymentAndDenial" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BulkDenials" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateOrUpdateLabMessage">
+        <xs:sequence>
+          <xs:element name="Code" type="types:IdType">
+            <xs:annotation>
+              <xs:documentation>The available Codes can be obtained using typetables
+                        webservice where tablename =TestMsg.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetLabMessage">
+        <xs:sequence>
+          <xs:element name="Code" type="types:IdType" />
+          <xs:element name="Description" type="types:DescriptionType" />
+          <xs:element name="MessageNote" type="types:NoteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentAndAdjustment">
+        <xs:sequence>
+          <xs:element name="Copay" type="types:AmountType" />
+          <xs:element name="CoInsurance" type="types:AmountType" />
+          <xs:element name="Deductible" type="types:AmountType" />
+          <xs:element name="PatientResponsibility" type="types:AmountType" />
+          <xs:element name="PaymentAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="PaymentComment" type="types:NoteType" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:date" />
+          <xs:element minOccurs="0" name="PaymentType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="AllowAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="BillAmountFromEob" type="types:AmountType" />
+          <xs:element minOccurs="0" name="UnitsPaid" type="types:UnitsType" />
+          <xs:element minOccurs="0" name="PayorId" type="types:IdType" />
+          <xs:element minOccurs="0" name="PayorName" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ReceiptId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="DepositId" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="DepositBatchId" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="DepositBatchSeqId" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="CheckNumber" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ICN" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="UserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="BatchPosted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ElectronicCardTransactionId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ElectronicCardType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ElectronicTransactionType" type="types:DescriptionType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Adjustment" type="sch0:Adjustment" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Denials" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Adjustment">
+        <xs:sequence>
+          <xs:element name="AdjustmentCode" type="types:DescriptionType" />
+          <xs:element name="BillAdjustmentAmount" type="types:AmountType" />
+          <xs:element name="ExpectAdjustmentAmount" type="types:AmountType" />
+          <xs:element minOccurs="0" name="AdjustmentComment" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="UserId" type="types:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Physicians">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ordering" type="sch0:Physician" />
+          <xs:element minOccurs="0" name="Referring" type="sch0:Physician" />
+          <xs:element minOccurs="0" name="Primary" type="sch0:Physician" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PayorPriorityType">
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:totalDigits value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Physician">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NPI" type="types:NPIType" />
+          <xs:element minOccurs="0" name="Name" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="UPIN" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ErrorType">
+        <xs:sequence>
+          <xs:element name="ReasonCode" type="types:IdType" />
+          <xs:element minOccurs="0" name="ErrorNote" type="types:NoteType" />
+          <xs:element name="Description" type="types:LongDescriptionType" />
+          <xs:element name="ErrorGroup" type="types:DescriptionType" />
+          <xs:element name="ErrorLevelType" type="types:DescriptionType" />
+          <xs:element name="ErrorDate" type="xs:date" />
+          <xs:element minOccurs="0" name="FixedDate" type="xs:date" />
+          <xs:element minOccurs="0" name="FieldName" type="xs:string" />
+          <xs:element minOccurs="0" name="FieldPattern" type="xs:string" />
+          <xs:element minOccurs="0" name="FiledErrorMessage" type="xs:string" />
+          <xs:element default="false" name="AccessionPayorField" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DetailDescription" type="types:LongDescriptionType" />
+          <xs:element minOccurs="0" name="LetterText" type="types:NoteType" />
+          <xs:element minOccurs="0" name="FieldCurrentValue" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFixableWithAcknowledgement" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionPayorErrorType">
+        <xs:sequence>
+          <xs:element name="PayorId" type="types:IdType" />
+          <xs:element name="PayorPriority" type="types:PayorPriorityType" />
+          <xs:element maxOccurs="unbounded" name="Error" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionTestErrorType">
+        <xs:sequence>
+          <xs:element name="TestId" type="types:IdType" />
+          <xs:element minOccurs="0" name="TestSequenceNumber" type="xs:positiveInteger">
+            <xs:annotation>
+              <xs:documentation>The sequence number that was sent in create accession.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" name="Error" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessionProcedureErrorType">
+        <xs:annotation>
+          <xs:documentation>This section describes Accession Procedure Errors.It could have Zero or more repetitions.
+      </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="ProcedureCode" type="types:IdType" />
+          <xs:element name="PayorPriority" type="types:PayorPriorityType" />
+          <xs:element name="PayorId" type="types:IdType" />
+          <xs:element minOccurs="0" name="DepositId" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="DepositBatchId" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="DepositBatchSeqId" type="xs:nonNegativeInteger" />
+          <xs:element maxOccurs="unbounded" name="Error" type="sch0:ErrorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DiagnosisCode">
+        <xs:annotation>
+          <xs:documentation>User Id is not required for creating and updating accession.User Id in MessageHeader will
+                be used as accession diagnosis userId
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DiagnosisCode" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="NarrativeDiag" type="types:NarrativeDiagTyp" />
+          <xs:element minOccurs="0" name="UserId" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ClientContact" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="ClientContactDate" type="xs:date" />
+          <xs:element minOccurs="0" name="Comment" type="types:NoteType" />
+          <xs:element minOccurs="0" name="DiagnosisCodeOrder" type="xs:positiveInteger" />
+          <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DocumentId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeletedDiagnosisCode">
+        <xs:sequence>
+          <xs:element name="DiagnosisCode" type="sch0:DiagnosisCode" />
+          <xs:element minOccurs="0" name="DiagnosisDescription" type="types:NarrativeDiagTyp" />
+          <xs:element name="DeletedDate" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClientQuestion">
+        <xs:sequence>
+          <xs:element name="Question" type="sch0:QuestionType">
+            <xs:annotation>
+              <xs:documentation>The available Questions can be obtained using typetables
+                        webservice where tablename =Question.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Response" type="types:NoteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="QuestionType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="AdditionalReportCopyType">
+        <xs:sequence>
+          <xs:element name="ClientId" type="types:IdType" />
+          <xs:element name="ContactMethodType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available ContactMethodTypes can be obtained using typetables
+                        webservice where tablename =ContactMethodType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Name" type="types:NameIdType" />
+          <xs:element minOccurs="0" name="Address" type="types:AddressType" />
+          <xs:element minOccurs="0" name="Phone" type="types:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Fax" type="types:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Email" type="types:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SpecimenInformationType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="SpecimenContainerCode" type="types:IdType">
+            <xs:annotation>
+              <xs:documentation>The available SpecimenContainerCodes can be obtained using typetables
+                        webservice where tablename =SpecimenContainerCode.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SpecimenSourceDescription" type="types:DescriptionType" />
+          <xs:element minOccurs="0" name="SpecimenTempType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available SpecimenTempTypes can be obtained using typetables
+                        webservice where tablename =SpecimenTempType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecimenQuestion" type="sch0:SpecimenQuestionsTyp" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PatientFastingType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="SpecimenQuestionsTyp">
+        <xs:sequence>
+          <xs:element name="QuestionId" type="sch0:QuestionType">
+            <xs:annotation>
+              <xs:documentation>The available QuestionIds can be obtained using typetables
+                        webservice where tablename =Question.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Response" type="types:DescriptionType" />
+          <xs:element name="SpecimenType" type="types:DescriptionType">
+            <xs:annotation>
+              <xs:documentation>The available SpecimenTypes can be obtained using typetables
+                        webservice where tablename =SpecimenType.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OccurrenceCodeType">
+        <xs:sequence>
+          <xs:element name="OccurrenceCode" type="types:IdType">
+            <xs:annotation>
+              <xs:documentation>The available OccurrenceCodes can be obtained using typetables
+                        webservice where ablename =OccurrenceCode.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="OccurrenceDate" type="xs:date" />
+          <xs:element minOccurs="0" name="SpecificPyrId" type="types:IdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValueCodeType">
+        <xs:sequence>
+          <xs:element name="ValueCode" type="types:IdType">
+            <xs:annotation>
+              <xs:documentation>The available ValueCodes can be obtained using typetables
+                        webservice where tablename =ValueCode.
+                        The typetable webservice response returns the Id and description. In this webservice request
+                        send the Id.
+                    </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ValueAmt" type="types:ShortStrType" />
+          <xs:element minOccurs="0" name="SpecificPyrId" type="types:IdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TravelFeeType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RoundTripFromLab" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TripMiles" type="types:AmountType" />
+          <xs:element minOccurs="0" name="TripStops" type="xs:nonNegativeInteger" />
+          <xs:element minOccurs="0" name="TripPatientCount" type="xs:nonNegativeInteger" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ForceToEPHoldQueueType">
+        <xs:sequence>
+          <xs:element name="ForceToEPHoldQueue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EPNote" type="types:NoteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LimitedCoveragePolicyDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PolicyHeader" type="xs:string" />
+          <xs:element minOccurs="0" name="CoveredDiagnoses" type="xs:string" />
+          <xs:element minOccurs="0" name="NonCoveredDiagnoses" type="xs:string" />
+          <xs:element minOccurs="0" name="ExcludedDiagnoses" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://www.xifin.com/schema/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="AddressType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AddressLine2">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="City">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="State">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Region">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ZIP">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="CountryCode">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PayorIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CardTypeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DelayReasonCodeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AmtType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccessionIdType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(([A-Za-z0-9][A-Za-z0-9-]*)|^)[A-Za-z0-9]" />
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="StatusType">
+        <xs:sequence>
+          <xs:element name="StatusCode" type="sch1:StatusCodeType" />
+          <xs:element minOccurs="0" name="StatusMessage" type="sch1:StatusMessageType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="StatusCodeType">
+        <xs:restriction base="xs:integer">
+          <xs:maxExclusive value="9999" />
+          <xs:minExclusive value="-9999" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="StatusMessageType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PhoneType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HomePhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="WorkPhone" type="sch1:PhoneNumberType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="NPIType">
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:totalDigits value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SSNType">
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:totalDigits value="9" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MSPTypeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NameIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TestNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="60" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DescriptionType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EmailAddressType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[^@]+@[^\.]+\..+" />
+          <xs:minLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="LongDescriptionType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NoteType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="4000" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneNumberType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="NameType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstName" type="sch1:NameIdType" />
+          <xs:element minOccurs="0" name="LastName" type="sch1:NameIdType" />
+          <xs:element minOccurs="0" name="MiddleName" type="sch1:NameIdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UnitsType">
+        <xs:restriction base="xs:integer">
+          <xs:totalDigits value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NarrativeDiagTyp">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProcedureNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ClientProductType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CommentsType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PersonType">
+        <xs:sequence>
+          <xs:element name="Name" type="sch1:NameType" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:date" />
+          <xs:element minOccurs="0" name="Gender" type="sch1:DescriptionType" />
+          <xs:element minOccurs="0" name="SSN" type="sch1:SSNType" />
+          <xs:element minOccurs="0" name="Address" type="sch1:AddressType" />
+          <xs:element minOccurs="0" name="HomePhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="WorkPhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Email" type="sch1:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Contact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactName" type="sch1:DescriptionType" />
+          <xs:element minOccurs="0" name="Phone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Fax" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Email" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UserIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TimeOfService">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TimeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PayorPriorityType">
+        <xs:restriction base="xs:int">
+          <xs:totalDigits value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ClientIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AbbrevType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AmountType">
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PaymentMethodType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientStatusType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ShortStrType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SmallInt">
+        <xs:restriction base="xs:integer">
+          <xs:minExclusive value="0" />
+          <xs:maxExclusive value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AuthorizationNumberType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EpiType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="60" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DemonstrationProjectIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema xmlns="http://www.xifin.com/schema/msgHeader" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/msgHeader" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="MessageHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OrganizationName" type="xs:string" />
+            <xs:element minOccurs="0" name="SequenceNumber" type="xs:positiveInteger" />
+            <xs:element name="UserId">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="20" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="SourceApplication" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Name of the source application
+                        </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="OrgAlias" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetEPAccessionResponse">
+    <wsdl:part name="GetEPAccessionResponse" element="sch0:GetEPAccessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAccessionResponse">
+    <wsdl:part name="ValidateAccessionResponse" element="sch0:ValidateAccessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccessionResponse">
+    <wsdl:part name="CreateAccessionResponse" element="sch0:CreateAccessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessionRequest">
+    <wsdl:part name="GetAccessionRequest" element="sch0:GetAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessionResponse">
+    <wsdl:part name="GetAccessionResponse" element="sch0:GetAccessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccessionRequest">
+    <wsdl:part name="UpdateAccessionRequest" element="sch0:UpdateAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEPAccessionRequest">
+    <wsdl:part name="UpdateEPAccessionRequest" element="sch0:UpdateEPAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetEPAccessionRequest">
+    <wsdl:part name="GetEPAccessionRequest" element="sch0:GetEPAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccessionRequest">
+    <wsdl:part name="CreateAccessionRequest" element="sch0:CreateAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAccessionRequest">
+    <wsdl:part name="ValidateAccessionRequest" element="sch0:ValidateAccessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAccessionResponse">
+    <wsdl:part name="UpdateAccessionResponse" element="sch0:UpdateAccessionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="accession">
+    <wsdl:operation name="GetEPAccession">
+      <wsdl:input name="GetEPAccessionRequest" message="sch0:GetEPAccessionRequest" />
+      <wsdl:output name="GetEPAccessionResponse" message="sch0:GetEPAccessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccession">
+      <wsdl:input name="ValidateAccessionRequest" message="sch0:ValidateAccessionRequest" />
+      <wsdl:output name="ValidateAccessionResponse" message="sch0:ValidateAccessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccession">
+      <wsdl:input name="CreateAccessionRequest" message="sch0:CreateAccessionRequest" />
+      <wsdl:output name="CreateAccessionResponse" message="sch0:CreateAccessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccession">
+      <wsdl:input name="GetAccessionRequest" message="sch0:GetAccessionRequest" />
+      <wsdl:output name="GetAccessionResponse" message="sch0:GetAccessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccession">
+      <wsdl:input name="UpdateAccessionRequest" message="sch0:UpdateAccessionRequest" />
+      <wsdl:output name="UpdateAccessionResponse" message="sch0:UpdateAccessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEPAccession">
+      <wsdl:input name="UpdateEPAccessionRequest" message="sch0:UpdateEPAccessionRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="accessionSoap11" type="sch0:accession">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEPAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetEPAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetEPAccessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="ValidateAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ValidateAccessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="CreateAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateAccessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAccessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateAccessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEPAccession">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateEPAccessionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="accessionService">
+    <wsdl:port name="accessionSoap11" binding="sch0:accessionSoap11">
+      <soap:address location="https://www.xifin.net/prod/accession/services" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://www.xifin.com/schema/accessionSearch" xmlns:sch2="http://www.xifin.com/schema/msgHeader" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch1="http://www.xifin.com/schema/types" xmlns:sch0="http://www.xifin.com/schema/accessionSearch" targetNamespace="http://www.xifin.com/schema/accessionSearch" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns="http://www.xifin.com/schema/accessionSearch" xmlns:msgHeader="http://www.xifin.com/schema/msgHeader" xmlns:types="http://www.xifin.com/schema/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/accessionSearch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.xifin.com/schema/types" />
+      <xs:import namespace="http://www.xifin.com/schema/msgHeader" />
+      <xs:element name="AccessionSearchRequest">
+        <xs:annotation>
+          <xs:documentation>Accession Search Request Message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element ref="sch0:AccessionSearchRequestMessage" />
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AccessionSearchResponse">
+        <xs:annotation>
+          <xs:documentation>Soap response message structure</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="msgHeader:MessageHeader" />
+            <xs:element name="Payload">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="Status" type="types:StatusType" />
+                  <xs:element minOccurs="0" name="TotalPatientDueAmount" type="types:AmountType" />
+                  <xs:element minOccurs="0" name="TotalBalanceDueAmount" type="types:AmountType" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" ref="sch0:AccessionSearchResponseMessage" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AccessionSearchRequestMessage">
+        <xs:annotation>
+          <xs:documentation>By default response will contain maximum of 100 records, if more than one records need to
+                be retrieved
+                send the start and end row numbers.
+                The data will returned between start and end record row numbers.
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AccessionId" type="xs:string" />
+            <xs:element minOccurs="0" default="true" name="AccessionWithAtleastOnePayor" type="xs:boolean" />
+            <xs:element minOccurs="0" name="RequisitionId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="PatientId" type="types:NameIdType" />
+            <xs:element minOccurs="0" name="ClientId" type="types:IdType" />
+            <xs:element minOccurs="0" name="ClientName" type="xs:string" />
+            <xs:element minOccurs="0" name="PatientName" type="types:NameType" />
+            <xs:element minOccurs="0" name="PatientSSN" type="xs:string" />
+            <xs:element minOccurs="0" name="PatientDOB" type="xs:date" />
+            <xs:element minOccurs="0" name="PayorId" type="types:PayorIdType" />
+            <xs:element minOccurs="0" name="PayorName" type="xs:string" />
+            <xs:element minOccurs="0" name="SubscriberId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="PatientAddress" type="types:AddressType" />
+            <xs:element minOccurs="0" name="InsuredName" type="types:NameType" />
+            <xs:element minOccurs="0" name="QuestionId" type="xs:int" />
+            <xs:element minOccurs="0" name="QuestionResponse" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="DosFrom" type="xs:date" />
+            <xs:element minOccurs="0" name="DosTo" type="xs:date" />
+            <xs:element minOccurs="0" default="true" name="DisplayPrimaryOnly" type="xs:boolean" />
+            <xs:element minOccurs="0" name="SortByPatientLastName" type="xs:boolean" />
+            <xs:element minOccurs="0" default="1" name="StartRowNumber" type="xs:integer" />
+            <xs:element minOccurs="0" default="100" name="EndRowNumber" type="xs:integer" />
+            <xs:element minOccurs="0" name="SubmissionId" type="xs:string" />
+            <xs:element minOccurs="0" name="ClientPrimaryFacilityId" type="types:IdType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AccessionSearchResponseMessage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RowId" type="xs:int" />
+            <xs:element minOccurs="0" name="PatientName" type="types:NameType" />
+            <xs:element minOccurs="0" name="PatientId" type="types:NameIdType" />
+            <xs:element minOccurs="0" name="AccessionId" type="types:AccessionIdType" />
+            <xs:element minOccurs="0" name="ClientId" type="types:IdType" />
+            <xs:element minOccurs="0" name="RequisitionId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="Dos" type="xs:date" />
+            <xs:element minOccurs="0" name="BalanceDueAmount" type="types:AmountType" />
+            <xs:element minOccurs="0" name="PatientDueAmount" type="types:AmountType" />
+            <xs:element minOccurs="0" name="PatientSSN" type="types:SSNType" />
+            <xs:element minOccurs="0" name="PatientDOB" type="xs:date" />
+            <xs:element minOccurs="0" name="PatientAddress" type="types:AddressType" />
+            <xs:element minOccurs="0" name="AccessionStatus" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="AccessionStatementStatus" type="types:DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="sch0:InsuranceInfo" />
+            <xs:element minOccurs="0" name="ClientSpecificPatientInfo" type="sch0:SpecificPatientInfo" />
+            <xs:element minOccurs="0" name="FacilitySpecificPatientInfo" type="sch0:SpecificPatientInfo" />
+            <xs:element minOccurs="0" name="MspForm" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsuranceInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PayorName" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="SubscriberId" type="types:DescriptionType" />
+            <xs:element minOccurs="0" name="InsuredName" type="types:NameType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SpecificPatientInfo">
+        <xs:sequence>
+          <xs:element name="SourceType" type="types:SourceType" />
+          <xs:element name="SourceId" type="types:IdType" />
+          <xs:element name="SourceName" type="types:NameIdType" />
+          <xs:element name="PatientId" type="types:PatientIdType" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://www.xifin.com/schema/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="AddressType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AddressLine2">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="City">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="State">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Region">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ZIP">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="CountryCode">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PayorIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CardTypeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DelayReasonCodeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AmtType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccessionIdType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(([A-Za-z0-9][A-Za-z0-9-]*)|^)[A-Za-z0-9]" />
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="StatusType">
+        <xs:sequence>
+          <xs:element name="StatusCode" type="sch1:StatusCodeType" />
+          <xs:element minOccurs="0" name="StatusMessage" type="sch1:StatusMessageType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="StatusCodeType">
+        <xs:restriction base="xs:integer">
+          <xs:maxExclusive value="9999" />
+          <xs:minExclusive value="-9999" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="StatusMessageType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PhoneType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HomePhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="WorkPhone" type="sch1:PhoneNumberType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="NPIType">
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:totalDigits value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SSNType">
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:totalDigits value="9" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MSPTypeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NameIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TestNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="60" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DescriptionType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EmailAddressType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[^@]+@[^\.]+\..+" />
+          <xs:minLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="LongDescriptionType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NoteType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="4000" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneNumberType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="NameType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstName" type="sch1:NameIdType" />
+          <xs:element minOccurs="0" name="LastName" type="sch1:NameIdType" />
+          <xs:element minOccurs="0" name="MiddleName" type="sch1:NameIdType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UnitsType">
+        <xs:restriction base="xs:integer">
+          <xs:totalDigits value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NarrativeDiagTyp">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProcedureNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ClientProductType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CommentsType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PersonType">
+        <xs:sequence>
+          <xs:element name="Name" type="sch1:NameType" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:date" />
+          <xs:element minOccurs="0" name="Gender" type="sch1:DescriptionType" />
+          <xs:element minOccurs="0" name="SSN" type="sch1:SSNType" />
+          <xs:element minOccurs="0" name="Address" type="sch1:AddressType" />
+          <xs:element minOccurs="0" name="HomePhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="WorkPhone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Email" type="sch1:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Contact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactName" type="sch1:DescriptionType" />
+          <xs:element minOccurs="0" name="Phone" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Fax" type="sch1:PhoneNumberType" />
+          <xs:element minOccurs="0" name="Email" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UserIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TimeOfService">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TimeType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PayorPriorityType">
+        <xs:restriction base="xs:int">
+          <xs:totalDigits value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ClientIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AbbrevType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AmountType">
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PaymentMethodType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientStatusType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ShortStrType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SmallInt">
+        <xs:restriction base="xs:integer">
+          <xs:minExclusive value="0" />
+          <xs:maxExclusive value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AuthorizationNumberType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EpiType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="15" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SourceNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountNameType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="60" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DemonstrationProjectIdType">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema xmlns="http://www.xifin.com/schema/msgHeader" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.xifin.com/schema/msgHeader" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="MessageHeader">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OrganizationName" type="xs:string" />
+            <xs:element minOccurs="0" name="SequenceNumber" type="xs:positiveInteger" />
+            <xs:element name="UserId">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="20" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="SourceApplication" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Name of the source application
+                        </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="OrgAlias" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="AccessionSearchRequest">
+    <wsdl:part name="AccessionSearchRequest" element="sch0:AccessionSearchRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccessionSearchResponse">
+    <wsdl:part name="AccessionSearchResponse" element="sch0:AccessionSearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="accessionSearch">
+    <wsdl:operation name="AccessionSearch">
+      <wsdl:input name="AccessionSearchRequest" message="sch0:AccessionSearchRequest" />
+      <wsdl:output name="AccessionSearchResponse" message="sch0:AccessionSearchResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="accessionSearchSoap11" type="sch0:accessionSearch">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccessionSearch">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccessionSearchRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccessionSearchResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="accessionSearchService">
+    <wsdl:port name="accessionSearchSoap11" binding="sch0:accessionSearchSoap11">
+      <soap:address location="https://www.xifin.net/prod/accession/services" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

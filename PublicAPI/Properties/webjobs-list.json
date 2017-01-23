@@ -1,0 +1,17 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+  "WebJobs": [
+    {
+      "filePath": "../WebJobs/SBUS_LMFetcher_WebJob/SBUS_LMFetcher_WebJob.csproj"
+    },
+    {
+      "filePath": "../WebJobs/SBUS_LMDeserializer_WebJob/SBUS_LMDeserializer_WebJob.csproj"
+    },
+    {
+      "filePath": "../WebJobs/SBUS_LM2Database_WebJob/SBUS_LMToDatabase_WebJob.csproj"
+    },
+    {
+      "filePath": "../WebJobs/SBUS_PeriodicResolver/SBUS_PeriodicResolver_WebJob.csproj"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://www.signalqawebservice.technossustest.com/BusinessService/NGS/NGSService.asmx?wsdl" docRef="http://www.signalqawebservice.technossustest.com/BusinessService/NGS/NGSService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://www.signalqawebservice.technossustest.com/BusinessService/NGS/NGSService.asmx" xmlns:q1="apvx:bus:NGSService:{807BD926-2E5A-4636-B5C7-2D202CE47F03}" binding="q1:NGSServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://www.signalqawebservice.technossustest.com/BusinessService/NGS/NGSService.asmx" xmlns:q2="apvx:bus:NGSService:{807BD926-2E5A-4636-B5C7-2D202CE47F03}" binding="q2:NGSServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
